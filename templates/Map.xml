@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MapData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dataName>map02006640</dataName>
+  <netDispPeriod>true</netDispPeriod>
+  <name>
+    <id>2006640</id>
+    <str>Custom event</str>
+    <data />
+  </name>
+  <mapType>2</mapType>
+  <hiddenType>0</hiddenType>
+  <unlockText>-</unlockText>
+  <mapFilterID>
+    <id>0</id>
+    <str>Collaboration</str>
+    <data>イベント</data>
+  </mapFilterID>
+  <categoryName>
+    <id>0</id>
+    <str>設定なし</str>
+    <data />
+  </categoryName>
+  <timeTableName>
+    <id>-1</id>
+    <str>Invalid</str>
+    <data />
+  </timeTableName>
+  <stopPageIndex>0</stopPageIndex>
+  <stopReleaseEventName>
+    <id>-1</id>
+    <str>Invalid</str>
+    <data />
+  </stopReleaseEventName>
+  <priority>0</priority>
+  <infos>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305301</id>
+        <str>Custom area 01</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>50026270</id>
+        <str>Character reward 04</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>0</pageIndex>
+      <indexInPage>0</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305302</id>
+        <str>Custom area 02</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>50026280</id>
+        <str>Character reward 03</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>0</pageIndex>
+      <indexInPage>1</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305303</id>
+        <str>Custom area 03</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>3057</id>
+        <str>Your Reality (Kenji Mizuno Remix)</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>50026290</id>
+        <str>Character reward 01</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>0</pageIndex>
+      <indexInPage>2</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305304</id>
+        <str>Custom area 04</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>50026300</id>
+        <str>Character reward 02</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>0</pageIndex>
+      <indexInPage>3</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305305</id>
+        <str>Custom area 05</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>30010418</id>
+        <str>Custom nameplate 01</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>1</pageIndex>
+      <indexInPage>0</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305306</id>
+        <str>Custom area 06</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>30010419</id>
+        <str>Custom nameplate 02</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>1</pageIndex>
+      <indexInPage>1</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305307</id>
+        <str>Custom area 07</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>30010420</id>
+        <str>Custom nameplate 03</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>1</pageIndex>
+      <indexInPage>2</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305308</id>
+        <str>Custom area 08</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>30010421</id>
+        <str>Custom nameplate 04</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>1</pageIndex>
+      <indexInPage>3</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+    <MapDataAreaInfo>
+      <mapAreaName>
+        <id>2305309</id>
+        <str>Custom area 09</str>
+        <data />
+      </mapAreaName>
+      <ddsMapName>
+        <id>21201</id>
+        <str>Custom map artwork</str>
+        <data />
+      </ddsMapName>
+      <musicName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </musicName>
+      <rewardName>
+        <id>140028501</id>
+        <str>Custom event</str>
+        <data />
+      </rewardName>
+      <isHard>false</isHard>
+      <pageIndex>1</pageIndex>
+      <indexInPage>8</indexInPage>
+      <requiredAchievementCount>0</requiredAchievementCount>
+      <gaugeName>
+        <id>31</id>
+        <str>基本セット31</str>
+        <data />
+      </gaugeName>
+    </MapDataAreaInfo>
+  </infos>
+</MapData>

@@ -1,0 +1,2 @@
+Pillow>=12.3,<13
+cricodecs==1.2.0

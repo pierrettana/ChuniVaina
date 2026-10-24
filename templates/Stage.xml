@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StageData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dataName>stage028501</dataName>
+  <netOpenName>
+    <id>2933</id>
+    <str>v2_50 09_3</str>
+    <data />
+  </netOpenName>
+  <disableFlag>false</disableFlag>
+  <releaseTagName>
+    <id>21</id>
+    <str>v2 2.50.00</str>
+    <data />
+  </releaseTagName>
+  <name>
+    <id>28501</id>
+    <str>Custom event</str>
+    <data />
+  </name>
+  <notesFieldLine>
+    <id>8</id>
+    <str>White</str>
+    <data>ホワイト</data>
+  </notesFieldLine>
+  <notesFieldFile>
+    <path>nf_28501.afb</path>
+  </notesFieldFile>
+  <baseFile>
+    <path>st_28501.afb</path>
+  </baseFile>
+  <objectFile>
+    <path />
+  </objectFile>
+  <defaultHave>false</defaultHave>
+  <image>
+    <path>CHU_UI_Stage_28501.dds</path>
+  </image>
+  <enablePlate>false</enablePlate>
+  <isReward>true</isReward>
+  <sortName />
+  <priority>0</priority>
+</StageData>

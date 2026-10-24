@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EventData>
+  <dataName>event00019481</dataName>
+  <netOpenName>
+    <id>2933</id>
+    <str>v2_50 09_3</str>
+    <data />
+  </netOpenName>
+  <name>
+    <id>19481</id>
+    <str>Custom map opening</str>
+    <data />
+  </name>
+  <text />
+  <ddsBannerName>
+    <id>-1</id>
+    <str>Invalid</str>
+    <data />
+  </ddsBannerName>
+  <periodDispType>1</periodDispType>
+  <alwaysOpen>true</alwaysOpen>
+  <teamOnly>false</teamOnly>
+  <isKop>false</isKop>
+  <priority>0</priority>
+  <substances>
+    <type>2</type>
+    <flag>
+      <value>0</value>
+    </flag>
+    <information>
+      <informationType>0</informationType>
+      <informationDispType>0</informationDispType>
+      <mapFilterID>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </mapFilterID>
+      <courseNames>
+        <list />
+      </courseNames>
+      <text />
+      <image>
+        <path />
+      </image>
+      <movieName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </movieName>
+      <presentNames>
+        <list />
+      </presentNames>
+    </information>
+    <map>
+      <tagText />
+      <mapName>
+        <id>2006640</id>
+        <str>Custom event</str>
+        <data />
+      </mapName>
+      <musicNames>
+        <list />
+      </musicNames>
+    </map>
+    <music>
+      <musicType>0</musicType>
+      <musicNames>
+        <list />
+      </musicNames>
+    </music>
+    <advertiseMovie>
+      <firstMovieName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </firstMovieName>
+      <secondMovieName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </secondMovieName>
+    </advertiseMovie>
+    <recommendMusic>
+      <musicNames>
+        <list />
+      </musicNames>
+    </recommendMusic>
+    <release>
+      <value>0</value>
+    </release>
+    <course>
+      <courseNames>
+        <list />
+      </courseNames>
+    </course>
+    <quest>
+      <questNames>
+        <list />
+      </questNames>
+    </quest>
+    <duel>
+      <duelName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </duelName>
+    </duel>
+    <cmission>
+      <cmissionName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </cmissionName>
+    </cmission>
+    <changeSurfBoardUI>
+      <value>0</value>
+    </changeSurfBoardUI>
+    <avatarAccessoryGacha>
+      <avatarAccessoryGachaName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </avatarAccessoryGachaName>
+    </avatarAccessoryGacha>
+    <rightsInfo>
+      <rightsNames>
+        <list />
+      </rightsNames>
+    </rightsInfo>
+    <playRewardSet>
+      <playRewardSetName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </playRewardSetName>
+    </playRewardSet>
+    <dailyBonusPreset>
+      <dailyBonusPresetName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </dailyBonusPresetName>
+    </dailyBonusPreset>
+    <matchingBonus>
+      <timeTableName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </timeTableName>
+    </matchingBonus>
+    <unlockChallenge>
+      <unlockChallengeName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </unlockChallengeName>
+    </unlockChallenge>
+    <linkedVerse>
+      <linkedVerseName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </linkedVerseName>
+    </linkedVerse>
+  </substances>
+</EventData>

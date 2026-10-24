@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QuestData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dataName>quest00001210</dataName>
+  <netOpenName>
+    <id>2901</id>
+    <str>v2_50 00_1</str>
+    <data />
+  </netOpenName>
+  <disableFlag>false</disableFlag>
+  <name>
+    <id>1210</id>
+    <str>Custom quest</str>
+    <data />
+  </name>
+  <charaWorks>
+    <list>
+      <StringID>
+        <id>98</id>
+        <str>Custom quest</str>
+        <data />
+      </StringID>
+    </list>
+  </charaWorks>
+  <charas>
+    <list />
+  </charas>
+  <hideInfo>false</hideInfo>
+  <priority>0</priority>
+  <info>
+    <QuestRewardDataInfo>
+      <sumRank>10</sumRank>
+      <keyTrophyName>
+        <id>3379</id>
+        <str>Custom quest</str>
+        <data />
+      </keyTrophyName>
+      <keyNamePlateName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </keyNamePlateName>
+      <keyCharaName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </keyCharaName>
+      <rewardName>
+        <list>
+          <StringID>
+            <id>70003379</id>
+            <str>Custom quest</str>
+            <data />
+          </StringID>
+        </list>
+      </rewardName>
+    </QuestRewardDataInfo>
+    <QuestRewardDataInfo>
+      <sumRank>35</sumRank>
+      <keyTrophyName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </keyTrophyName>
+      <keyNamePlateName>
+        <id>344</id>
+        <str>Custom quest trophy</str>
+        <data />
+      </keyNamePlateName>
+      <keyCharaName>
+        <id>-1</id>
+        <str>Invalid</str>
+        <data />
+      </keyCharaName>
+      <rewardName>
+        <list>
+          <StringID>
+            <id>30000344</id>
+            <str>Custom quest trophy</str>
+            <data />
+          </StringID>
+        </list>
+      </rewardName>
+    </QuestRewardDataInfo>
+  </info>
+</QuestData>

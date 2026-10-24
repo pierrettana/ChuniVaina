@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DDSMapData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dataName>ddsMap00021201</dataName>
+  <name>
+    <id>21201</id>
+    <str>Custom map artwork</str>
+    <data />
+  </name>
+  <ddsFile>
+    <path>CHU_MAP_event_custom.dds</path>
+  </ddsFile>
+</DDSMapData>

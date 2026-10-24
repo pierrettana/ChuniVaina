@@ -1,0 +1,303 @@
+<TrophyData>
+  <dataName>trophy009000</dataName>
+  <netOpenName>
+    <id>2933</id>
+    <str>v2_50 09_3</str>
+    <data />
+  </netOpenName>
+  <disableFlag>false</disableFlag>
+  <name>
+    <id>9000</id>
+    <str>Quick trophy</str>
+    <data />
+  </name>
+  <explainText>Song/ALL JUSTICE達成</explainText>
+  <defaultHave>false</defaultHave>
+  <rareType>4</rareType>
+  <image>
+    <path />
+  </image>
+  <normCondition>
+    <conditions>
+      <ConditionSubData>
+        <type>1</type>
+        <eventData>
+          <eventNames>
+            <list />
+          </eventNames>
+        </eventData>
+        <playMusicData>
+          <genreNames>
+            <list />
+          </genreNames>
+          <musicNames>
+            <list>
+              <StringID>
+                <id>-1</id>
+                <str>Invalid</str>
+                <data />
+              </StringID>
+            </list>
+          </musicNames>
+          <musicDif>
+            <id>2</id>
+            <str>Expert</str>
+            <data>EXPERT</data>
+          </musicDif>
+        </playMusicData>
+        <playSettingData>
+          <playOptionSpeed>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </playOptionSpeed>
+          <playOptionFieldWallPosition>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </playOptionFieldWallPosition>
+          <playOptionMirror>false</playOptionMirror>
+        </playSettingData>
+        <playMusicResultData>
+          <memberNum>0</memberNum>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <matchingResultType>0</matchingResultType>
+          <memberRanking>0</memberRanking>
+          <gameOver>false</gameOver>
+          <fullCombo>false</fullCombo>
+          <fullChain>false</fullChain>
+          <allJustice>false</allJustice>
+          <memberOtherTrophyName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </memberOtherTrophyName>
+          <missNum>0</missNum>
+          <maxComboNum>0</maxComboNum>
+        </playMusicResultData>
+        <playTotalResultData>
+          <allPlayedMusicName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </allPlayedMusicName>
+        </playTotalResultData>
+        <personData>
+          <playerRebirthCount>0</playerRebirthCount>
+          <playerLv>0</playerLv>
+          <playerRating>0</playerRating>
+          <totalGamePoint>0</totalGamePoint>
+          <totalNetBattle>0</totalNetBattle>
+          <battleRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </battleRank>
+        </personData>
+        <charaData>
+          <targetRank>0</targetRank>
+          <charaName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </charaName>
+        </charaData>
+        <skillData>
+          <lvMax>false</lvMax>
+        </skillData>
+        <trophyData>
+          <haveTrophyNames>
+            <list />
+          </haveTrophyNames>
+        </trophyData>
+        <travelData>
+          <japanRegionID>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </japanRegionID>
+          <japanRegionPlayNum>0</japanRegionPlayNum>
+          <playedRegionNum>0</playedRegionNum>
+          <lapNum>0</lapNum>
+        </travelData>
+        <musicData>
+          <musicName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </musicName>
+          <musicDif>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </musicDif>
+          <masterUnderAll>false</masterUnderAll>
+          <totalPlayNum>0</totalPlayNum>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <fullCombo>false</fullCombo>
+          <fullChain>false</fullChain>
+          <allJustice>false</allJustice>
+          <playNum>0</playNum>
+        </musicData>
+        <completeData>
+          <releaseTagName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </releaseTagName>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <allJustice>false</allJustice>
+        </completeData>
+      </ConditionSubData>
+      <ConditionSubData>
+        <type>3</type>
+        <eventData>
+          <eventNames>
+            <list />
+          </eventNames>
+        </eventData>
+        <playMusicData>
+          <genreNames>
+            <list />
+          </genreNames>
+          <musicNames>
+            <list />
+          </musicNames>
+          <musicDif>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </musicDif>
+        </playMusicData>
+        <playSettingData>
+          <playOptionSpeed>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </playOptionSpeed>
+          <playOptionFieldWallPosition>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </playOptionFieldWallPosition>
+          <playOptionMirror>false</playOptionMirror>
+        </playSettingData>
+        <playMusicResultData>
+          <memberNum>0</memberNum>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <matchingResultType>0</matchingResultType>
+          <memberRanking>0</memberRanking>
+          <gameOver>false</gameOver>
+          <fullCombo>false</fullCombo>
+          <fullChain>false</fullChain>
+          <allJustice>true</allJustice>
+          <memberOtherTrophyName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </memberOtherTrophyName>
+          <missNum>0</missNum>
+          <maxComboNum>0</maxComboNum>
+        </playMusicResultData>
+        <playTotalResultData>
+          <allPlayedMusicName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </allPlayedMusicName>
+        </playTotalResultData>
+        <personData>
+          <playerRebirthCount>0</playerRebirthCount>
+          <playerLv>0</playerLv>
+          <playerRating>0</playerRating>
+          <totalGamePoint>0</totalGamePoint>
+          <totalNetBattle>0</totalNetBattle>
+          <battleRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </battleRank>
+        </personData>
+        <charaData>
+          <targetRank>0</targetRank>
+          <charaName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </charaName>
+        </charaData>
+        <skillData>
+          <lvMax>false</lvMax>
+        </skillData>
+        <trophyData>
+          <haveTrophyNames>
+            <list />
+          </haveTrophyNames>
+        </trophyData>
+        <travelData>
+          <japanRegionID>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </japanRegionID>
+          <japanRegionPlayNum>0</japanRegionPlayNum>
+          <playedRegionNum>0</playedRegionNum>
+          <lapNum>0</lapNum>
+        </travelData>
+        <musicData>
+          <musicName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </musicName>
+          <musicDif>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </musicDif>
+          <masterUnderAll>false</masterUnderAll>
+          <totalPlayNum>0</totalPlayNum>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <fullCombo>false</fullCombo>
+          <fullChain>false</fullChain>
+          <allJustice>false</allJustice>
+          <playNum>0</playNum>
+        </musicData>
+        <completeData>
+          <releaseTagName>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </releaseTagName>
+          <scoreRank>
+            <id>-1</id>
+            <str>Invalid</str>
+            <data />
+          </scoreRank>
+          <allJustice>false</allJustice>
+        </completeData>
+      </ConditionSubData>
+    </conditions>
+  </normCondition>
+  <priority>0</priority>
+</TrophyData>

@@ -1,0 +1,19 @@
+<RightsInfoData>
+  <dataName>rightsInfo009000</dataName>
+  <dispNet>true</dispNet>
+  <netOpenName>
+    <id>-1</id>
+    <str>Invalid</str>
+    <data />
+  </netOpenName>
+  <rightsText>© Your credit here</rightsText>
+  <name>
+    <id>9000</id>
+    <str>Custom rights</str>
+    <data />
+  </name>
+  <image>
+    <path>CHU_UI_Rights_9000.dds</path>
+  </image>
+  <priority>0</priority>
+</RightsInfoData>
