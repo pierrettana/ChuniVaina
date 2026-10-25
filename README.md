@@ -4,6 +4,8 @@ A desktop studio for a certain sliding rhythm game.. Make characters, categories
 
 The optional **Quick tour** features VainaPenguin, our penguin mascot! You may Skip it, disable startup display, or reopen it from the header. **Help / F1** provides searchable field descriptions.
 
+For clarifying: this was vibecoded, its more for convenience because editing xml files is annoying, however no AI model is used inside the tool, just was used to create the tool
+
 ## Run or build
 
 Install Python 3.12 or newer with Tk support. From this folder:
