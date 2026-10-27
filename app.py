@@ -69,24 +69,16 @@ class App(tk.Tk):
         ttk.Label(ident, text='Name').pack(side='left')
         ttk.Entry(ident, textvariable=self.namevar).pack(side='left', fill='x', expand=True, padx=5)
         ttk.Button(ident, text='Apply identity', command=lambda: self.guard(self.apply_identity)).pack(side='left')
-        artworkbar=ttk.Frame(right); artworkbar.pack(fill='x', pady=6)
-        ttk.Button(artworkbar, text='Attach DDS artwork…', command=lambda: self.guard(self.attach_dds)).pack(side='left')
-        ttk.Button(artworkbar, text='Link character to artwork…', command=lambda: self.guard(self.link_artwork)).pack(side='left', padx=5)
-        ttk.Button(artworkbar, text='Link reward…', command=lambda: self.guard(self.link_reward)).pack(side='left', padx=5)
-        ttk.Button(artworkbar, text='Artwork studio…', command=lambda: self.guard(self.artwork_studio)).pack(side='left', padx=5)
-        ttk.Button(right, text='Stage texture editor…', command=lambda: self.guard(self.stage_studio)).pack(anchor='w',pady=3)
-        ttk.Button(right, text='Song studio / UGC converter…', command=lambda: self.guard(self.song_studio)).pack(anchor='w',pady=3)
-        ttk.Button(right, text='Quick trophy…', command=lambda:self.guard(self.quick_trophy)).pack(anchor='w',pady=3)
-        ttk.Button(right, text='ACB/AWB fixer…', command=lambda:self.guard(self.audio_fixer)).pack(anchor='w',pady=3)
+        from cv_workflow import build_tools, build_overview
+        build_tools(self, right)
         self.artstatus=tk.StringVar()
-        ttk.Label(right, textvariable=self.artstatus).pack(anchor='w')
-        worldbar=ttk.Frame(right); worldbar.pack(fill='x',pady=4)
-        for label,fn in [('Map / area / bonus editor…',self.world_editor),('Link reference…',self.link_reference),('Check references',self.check_references),('Link event target…',self.link_event_target)]:
-            ttk.Button(worldbar,text=label,command=lambda f=fn:self.guard(f)).pack(side='left',padx=3)
+        ttk.Label(right, textvariable=self.artstatus, wraplength=680).pack(anchor='w')
         self.warning = tk.StringVar(value='Create an item or import an XML reference to begin.')
         ttk.Label(right, textvariable=self.warning, wraplength=700, foreground='#b25718').pack(fill='x', pady=10)
         book = ttk.Notebook(right); book.pack(fill='both', expand=True)
-        fields = ttk.Frame(book, padding=8); book.add(fields, text='Structured editor')
+        self.overview = ttk.Frame(book, padding=12); book.add(self.overview, text='Item settings & next steps')
+        build_overview(self)
+        fields = ttk.Frame(book, padding=8); book.add(fields, text='Advanced fields')
         self.tree = ttk.Treeview(fields, columns=('value',), selectmode='browse'); self.tree.heading('#0', text='Field / reference'); self.tree.heading('value', text='Value')
         self.tree.column('#0', width=260); self.tree.column('value', width=300)
         scroll = ttk.Scrollbar(fields, command=self.tree.yview); self.tree.configure(yscrollcommand=scroll.set)
@@ -98,13 +90,24 @@ class App(tk.Tk):
         ttk.Button(edit, text='Set value', command=lambda: self.guard(self.set_value)).pack(side='left', padx=4)
         self.field_help=tk.StringVar(value='Select a field for its description. Press F1 for the full guide.')
         ttk.Label(fields,textvariable=self.field_help,wraplength=680,foreground='#555555').pack(fill='x',pady=(0,8))
-        for text, fn in [('Duplicate node', self.duplicate), ('Remove node', self.remove_node), ('Add XML child…', self.add_child)]:
+        for text, fn in [('Duplicate node', self.duplicate), ('Remove node', self.remove_node), ('Add XML child…', self.add_child), ('Link reference…', self.link_reference)]:
             ttk.Button(fields, text=text, command=lambda f=fn: self.guard(f)).pack(side='left', padx=3)
         raw = ttk.Frame(book, padding=8); book.add(raw, text='XML preview / advanced')
         self.raw = tk.Text(raw, undo=True, wrap='none', font=('Menlo', 11)); self.raw.pack(fill='both', expand=True)
         ttk.Button(raw, text='Apply XML edits', command=lambda: self.guard(self.apply_raw)).pack(anchor='e', pady=8)
         self.after(100, self.poll)
         self.after(350, lambda: self.guard(lambda:welcome_if_needed(self)))
+
+    @property
+    def dirty(self):
+        return getattr(self, '_dirty', False)
+
+    @dirty.setter
+    def dirty(self, value):
+        self._dirty = value
+        self.title(f'ChuniVaina {VERSION} · ' + ('Unsaved project changes' if value else 'Project saved / no changes'))
+        if hasattr(self, 'project_status'):
+            self.project_status.set('Unsaved project changes — Save project to keep them.' if value else 'Project saved / no changes. Studio drafts must be applied first.')
 
     def help_window(self):
         open_help(self)
@@ -153,7 +156,13 @@ class App(tk.Tk):
     def refresh(self):
         self.items.delete(0, 'end')
         if self.docs:self.empty_welcome.place_forget()
-        else:self.empty_welcome.place(relx=.5,rely=.5,anchor='center')
+        else:
+            self.empty_welcome.place(relx=.5,rely=.5,anchor='center')
+            self.idvar.set(''); self.namevar.set(''); self.artstatus.set('')
+            self.warning.set('Create an item or import XML to begin.')
+            for child in self.overview.winfo_children(): child.destroy()
+            from cv_workflow import build_overview
+            build_overview(self)
         for r in self.docs: self.items.insert('end', f'{KINDS[r.tag][0]} · {r.findtext("name/id")} · {r.findtext("name/str")}')
         if self.current is not None:
             self.items.selection_set(self.current)
@@ -183,6 +192,8 @@ class App(tk.Tk):
         else: self.artstatus.set('')
         self.field_help.set(describe_field(root,root))
         self.check_conflict()
+        from cv_workflow import update_overview
+        update_overview(self)
 
     def check_conflict(self):
         if self.current is None: return
@@ -193,7 +204,7 @@ class App(tk.Tk):
         local = [i for i, r in enumerate(self.docs) if i != self.current and identity(r) == key]
         if hits or local:
             self.warning.set(f'⚠ ID conflict: {len(hits)} imported definition(s), {len(local)} other project item(s). ' + '; '.join(p for _, p in hits[:2]))
-        else: self.warning.set('No ID conflict in the current index.' if self.folders else 'No sources imported. ID availability has not been checked against the game.')
+        else: self.warning.set('No indexed conflict. Avoid official IDs and ranges likely to be used in future updates, especially song IDs. Future IDs cannot be predicted.' if self.folders else 'Import A000 and options to check IDs. Do not use official IDs or likely future official ranges, especially for songs.')
 
     def select_doc(self, _=None):
         if self.items.curselection(): self.current = self.items.curselection()[0]; self.show()
@@ -202,6 +213,8 @@ class App(tk.Tk):
         win = tk.Toplevel(self); win.title('New content'); win.transient(self)
         ttk.Label(win, text='Choose a content template:', padding=12).pack()
         options=[(spec[0],spec[2]) for kind,spec in KINDS.items() if kind not in ('MusicData','CueFileData')]+[('Map-opening event (type 2)','Event-map.xml'),('Quest-opening event (type 8)','Event-quest.xml'),('Rights-information event (type 11)','Event-rights.xml')]
+        from cv_workflow import character_wizard
+        ttk.Button(win,text='Guided character creator…',command=lambda:(win.destroy(),self.guard(lambda:character_wizard(self,BASE)))).pack(fill='x',padx=12,pady=4)
         ttk.Button(win,text='Song / UGC converter…',command=lambda:(win.destroy(),self.guard(lambda:self.song_studio(True)))).pack(fill='x',padx=12,pady=4)
         choices_frame=ttk.Frame(win);choices_frame.pack(fill='both',expand=True,padx=8)
         for option_index,(label,file) in enumerate(options):
@@ -339,6 +352,9 @@ class App(tk.Tk):
         except queue.Empty: pass
         try:
             self.index, self.errors, self.source_definitions = self.messages.get_nowait(); self.scanning=False; self.check_conflict()
+            if self.current is not None:
+                from cv_workflow import update_overview
+                update_overview(self)
             if self.errors: messagebox.showwarning('Incomplete scan', f'{len(self.errors)} scan error(s). View index / scan errors for details. Conflicts may be missing.')
         except queue.Empty: pass
         self.after(100, self.poll)
@@ -584,17 +600,16 @@ class App(tk.Tk):
         if name is None: return
         name=name.strip()
         if not re.fullmatch(r'A[0-9A-Za-z]{3}',name): raise ValueError('Use A followed by three letters or digits, e.g. A900.')
-        version=simpledialog.askstring('data.conf version','Major.Minor.Release for data.conf:',initialvalue='2.50.1',parent=self)
-        if version is None: return
-        parts=version.strip().split('.')
-        if len(parts)!=3 or any(not p.isdigit() for p in parts): raise ValueError('Enter three nonnegative integers, e.g. 2.50.1.')
+        from cv_workflow import export_settings
+        settings=export_settings(self)
+        if settings is None: return
         folder=filedialog.askdirectory(title='Choose the parent directory for '+name)
         if not folder: return
         dest=(Path(folder)/name).resolve()
         if any(dest.is_relative_to(Path(p).resolve()) for p in self.folders):
             raise ValueError('Choose an output location outside imported source folders.')
-        output=export_option(folder,name,self.docs,parts,self.assets)
-        messagebox.showinfo('Option exported',f'Exported {len(self.docs)} item(s) to:\n{output}\n\nIncludes XML definitions, attached DDS/AFB assets, song charts/audio banks, and data.conf. Other external dependencies must be supplied separately.')
+        output=export_option(folder,name,self.docs,assets=self.assets,version=settings[0])
+        messagebox.showinfo('Option exported',f'Exported {len(self.docs)} item(s) to:\n{output}\n\nIncludes XML definitions and attached DDS/AFB assets, song charts and audio banks. Other external dependencies must be supplied separately.')
 
     def close(self):
         if self.may_discard(): self.destroy()

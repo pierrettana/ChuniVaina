@@ -11,7 +11,7 @@ def open_fixer(parent,initial_pair=None,on_apply=None,stem='music'):
     win.transient(parent);win.grab_set()
     body=ttk.Frame(win,padding=16);body.pack(fill='both',expand=True)
     ttk.Label(body,text='ACB/AWB fixer',font=('Helvetica',20,'bold')).pack(anchor='w')
-    ttk.Label(body,text='For externally prepared song banks: correct sample-rate/duration metadata and apply the CHUNITHM cipher treatment. Original files are kept intact.',wraplength=740).pack(anchor='w',pady=10)
+    ttk.Label(body,text='For externally prepared song banks: correct sample-rate/duration metadata and apply the game audio cipher treatment. Original files are kept intact.',wraplength=740).pack(anchor='w',pady=10)
     ttk.Label(body,text='Supported: one stereo HCA 2.0 stream at 44.1/48 kHz, 96-byte header. Existing type-56 audio stays encrypted as supplied. Other layouts and source WAV/MP3 conversion require external tools.',wraplength=740).pack(anchor='w',pady=4)
     pair=[initial_pair];name=[stem];result=[None];busy=[False];messages=queue.Queue();buttons=[]
     selected=tk.StringVar(value=stem+' · attached pair' if initial_pair else 'No pair selected.')
@@ -46,7 +46,7 @@ def open_fixer(parent,initial_pair=None,on_apply=None,stem='music'):
             f'HCA cipher: {report["cipher_type"]} → {report["cipher_type_after"]}',
             report['verification'],
             'Cue graph, preview commands and internal bank name preserved.',
-            'Cipher interoperability: public vgmstream CHUNITHM audio entry.',
+            'Cipher interoperability: public vgmstream game audio entry.',
             'WAV/MP3 encoding and unsupported bank layouts require external tools.',
         ]
         text.configure(state='normal');text.delete('1.0','end');text.insert('end','\n\n'.join(lines));text.configure(state='disabled')

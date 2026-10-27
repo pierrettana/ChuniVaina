@@ -5,15 +5,15 @@ import sys
 from pathlib import Path
 
 CUSTOMS_URL='https://github.com/Suprnova/Chunithm-Research/blob/main/Customs.md'
-RESOURCE_CREDIT='CHUNITHM Customs Source / Chunithm-Research by Suprnova'
+RESOURCE_CREDIT='Audio preparation guide / rhythm-game research by Suprnova'
 NOTICE=(
     'Notice:\n'
-    'This application does not have the feature to convert audio to the required files for CHUNITHM '
+    'This application does not have the feature to convert audio to the required files for the game '
     '(I tried to add it, if that makes you feel better…)\n\n'
     'This application DOES support conversion from UMIGURI (.ugc), and does allow you to import '
     'your already prepared acb/awb. Please follow the resource for instructions on how to prepare your audio files.\n\n'
     'The ACB/AWB fixer can repair supported prepared HCA banks: it corrects metadata and applies the '
-    'CHUNITHM cipher treatment without re-encoding the sound. WAV/MP3 conversion still requires external tools.'
+    'game audio cipher treatment without re-encoding the sound. WAV/MP3 conversion still requires external tools.'
 )
 
 def preferences_path():
@@ -65,12 +65,12 @@ def show_notice(app):
     def source():
         try:
             if not webbrowser.open(CUSTOMS_URL):
-                messagebox.showinfo('CHUNITHM Customs Source',CUSTOMS_URL,parent=win)
+                messagebox.showinfo('Audio preparation guide',CUSTOMS_URL,parent=win)
         except Exception:
-            messagebox.showinfo('CHUNITHM Customs Source',CUSTOMS_URL,parent=win)
+            messagebox.showinfo('Audio preparation guide',CUSTOMS_URL,parent=win)
     row=ttk.Frame(body);row.pack(fill='x',pady=(8,0))
     ttk.Button(row,text='Okay',command=okay).pack(side='left')
-    ttk.Button(row,text='CHUNITHM Customs Source',command=source).pack(side='left',padx=8)
+    ttk.Button(row,text='Audio preparation guide',command=source).pack(side='left',padx=8)
     win.protocol('WM_DELETE_WINDOW',okay)
     win.bind('<Return>',lambda event:okay())
     app.wait_window(win)

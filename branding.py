@@ -2,7 +2,7 @@
 from pathlib import Path
 import sys
 
-VERSION = '1.0.0'
+VERSION = '1.1.1'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 
 
@@ -33,9 +33,9 @@ def about(app):
     ttk.Label(body, text='ChuniVaina ' + VERSION, font=('Helvetica', 22, 'bold')).pack()
     ttk.Label(body, text='A little penguin. A whole world of custom content.',
               wraplength=410, justify='center').pack(pady=10)
-    ttk.Label(body, text='Created by Quincy · Mascot artwork supplied by Quincy\n'
+    ttk.Label(body, text='Created by pierretta · Mascot artwork supplied by pierretta\n'
               'An independent community tool; not affiliated with SEGA.\n\n'
-              'Thanks to Suprnova for CHUNITHM research, vgmstream for\n'
+              'Thanks to Suprnova for rhythm-game research, vgmstream for\n'
               'audio interoperability research, and CriCodecs for HCA support.\n'
               'Built with Python, Tk and Pillow.', justify='center').pack()
     ttk.Button(body, text='Take the quick tour', command=lambda: open_tutorial(app)).pack(pady=(18, 6))
@@ -50,10 +50,10 @@ STEPS = (
     ('Give your IDs a little breathing room',
      'Import A000 and your Axxx folders under ID CONFLICT SOURCES. Have lots of options? '
      'Bulk import lets you select a parent folder and choose multiple options together.',
-     'Choose your own IDs. ChuniVaina warns about conflicts within each content type. Rescan after source changes.'),
+     'Do not reuse official IDs or likely future official ranges, especially song IDs. Conflict checks cannot predict future official allocations. Rescan after updates.'),
     ('Make your first piece of content',
      'Choose New for a content template, or Import XML to use an existing definition. '
-     'Set the ID and name, then click Apply identity. Select fields in the Structured editor to see their descriptions.',
+     'Set the ID and name, then click Apply identity. Use Item settings & next steps, or Advanced fields for detailed edits. New also offers a guided character creator.',
      'Templates include references and release settings. Review them for your installation. Renaming an ID does not update other items’ links.'),
     ('A little artwork goes a long way',
      'Artwork studio previews and converts images. Character artwork has three sizes; '
@@ -68,10 +68,10 @@ STEPS = (
      'Song studio converts Margrete text UGC charts and imports prepared ACB/AWB audio. '
      'Use the linked audio preparation guide and the ACB/AWB fixer for supported banks. '
      'Audio encoding requires external tools.',
-     'Choose a CHUNITHM version for each song and review chart constants against your server’s rules. Quick trophy creates separate EXPERT and MASTER ALL JUSTICE awards.'),
+     'Choose a game version for each song and review chart constants against your server’s rules. Quick trophy creates separate EXPERT and MASTER ALL JUSTICE awards.'),
     ('Save it. Pack it. Play it.',
      'Save project keeps an editable .cvproject with its attachments. Check references, then Export Axxx folder '
-     'and choose your option folder name. Export creates a new folder and leaves existing folders alone.',
+     'and choose your option folder name. Optional data.conf supplies the test-menu listing, is not required for custom loading, and can cause version conflicts. Export creates a new folder.',
      'Apply edits before saving: Set value, Apply identity, Apply XML edits, or the studio’s Apply button. Help / F1 is always here if you need a hand. Happy creating!'),
 )
 

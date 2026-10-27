@@ -23,7 +23,7 @@ def set_song_version(root,tag):
     if tag is None:return
     try:number=int(tag.findtext('id','-1'))
     except ValueError:raise ValueError('Version release ID must be numeric.')
-    if number<0 or not tag.findtext('str','').strip():raise ValueError('Choose a valid CHUNITHM version.')
+    if number<0 or not tag.findtext('str','').strip():raise ValueError('Choose a valid game version.')
     old=root.find('releaseTagName')
     replacement=copy.deepcopy(tag);replacement.tag='releaseTagName'
     if old is None:root.insert(1,replacement)

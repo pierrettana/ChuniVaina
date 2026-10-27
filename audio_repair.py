@@ -1,4 +1,4 @@
-"""Repair supported single-stream HCA banks for CHUNITHM.
+"""Repair supported single-stream HCA banks for a slider rhythm game.
 
 No WAV/MP3 encoding. Cipher conversion preserves the decoded PCM exactly.
 The public audio-interoperability entry comes from vgmstream (not game binaries).

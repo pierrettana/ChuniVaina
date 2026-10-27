@@ -17,7 +17,7 @@ def open_editor(app,base,new=False):
     old_cue=next((r for r in app.docs if current is not None and r.tag=='CueFileData' and r.findtext('name/id')==current.findtext('cueFileName/id')),None)
     win=tk.Toplevel(app);win.title('ChuniVaina · Song studio');win.geometry('820x760');win.transient(app);win.grab_set()
     body=ttk.Frame(win,padding=16);body.pack(fill='both',expand=True)
-    ttk.Label(body,text='Custom song · UGC → CHUNITHM',font=('Helvetica',20,'bold')).pack(anchor='w')
+    ttk.Label(body,text='Custom song · UGC conversion',font=('Helvetica',20,'bold')).pack(anchor='w')
     ttk.Label(body,text='Add the chart difficulties, jacket and audio. Apply adds a Song and its audio bank to the project.',wraplength=760).pack(anchor='w',pady=8)
     grid=ttk.Frame(body);grid.pack(fill='x');grid.columnconfigure(1,weight=1)
     values={}
@@ -31,7 +31,7 @@ def open_editor(app,base,new=False):
     version=tk.StringVar()
     choices=['Keep current release tag']+[version_label(tag) for tag in versions]
     selected=next((i+1 for i,tag in enumerate(versions) if tag.findtext('id')==template.findtext('releaseTagName/id') and tag.findtext('str')==template.findtext('releaseTagName/str')),0)
-    ttk.Label(grid,text='CHUNITHM version').grid(row=len(fields),column=0,sticky='w',pady=3)
+    ttk.Label(grid,text='Game version').grid(row=len(fields),column=0,sticky='w',pady=3)
     picker=ttk.Combobox(grid,textvariable=version,values=choices,state='readonly')
     picker.grid(row=len(fields),column=1,sticky='ew',padx=8,pady=3);picker.current(selected)
     ttk.Label(body,text='Versions come from imported songs. Rescan A000/Axxx sources to populate this list. Stage -1 uses the game’s default; a special Stage ID takes precedence.',wraplength=760).pack(anchor='w',pady=4)
@@ -40,7 +40,7 @@ def open_editor(app,base,new=False):
         try:n=int(values['id'].get())
         except ValueError:conflict.set('Enter a numeric ID.');return
         hits=[f'{kind} {n}' for kind in ('MusicData','CueFileData') if (kind,n) in app.index]
-        conflict.set('ID conflict in imported sources: '+', '.join(hits) if hits else 'No imported song/audio-bank conflict for this ID.' if app.folders else 'Import A000/Axxx sources to check this ID against your installation.')
+        conflict.set('ID conflict in imported sources: '+', '.join(hits) if hits else 'No indexed song/audio-bank conflict. Avoid official IDs and likely future official song ranges; scans cannot predict future IDs.' if app.folders else 'Import A000/Axxx to check IDs. Do not reuse official song IDs or likely future official ranges.')
     values['id'].trace_add('write',conflicts);conflicts()
     charts={};jacket=[None];pair=[None];busy=[False];messages=queue.Queue()
     if current is not None:
@@ -101,7 +101,7 @@ def open_editor(app,base,new=False):
         config={k:v.get() for k,v in values.items()};num=int(config['id']);stage=int(config['stage']);genre=int(config['genre'])
         release_tag=copy.deepcopy(versions[picker.current()-1]) if picker.current()>0 else None
         if not charts or jacket[0] is None:raise ValueError('Attach chart difficulties and a jacket first.')
-        if pair[0] is None:raise ValueError('Attach your prepared ACB/AWB pair first. See CHUNITHM Customs Source for audio preparation instructions.')
+        if pair[0] is None:raise ValueError('Attach your prepared ACB/AWB pair first. See Audio preparation guide for audio preparation instructions.')
         if any(r is not current and r is not old_cue and identity(r) in (('MusicData',num),('CueFileData',num)) for r in app.docs):raise ValueError('This song/audio-bank ID already exists in the project.')
         hits=[kind for kind in ('MusicData','CueFileData') if (kind,num) in app.index]
         if hits and not messagebox.askyesno('ID conflict',f'ID {num} already exists in imported sources ({", ".join(hits)}). Use it anyway?',parent=win):return

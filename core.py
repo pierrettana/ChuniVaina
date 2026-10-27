@@ -123,7 +123,7 @@ def discover_sources(parent):
     return sorted(found), errors
 
 
-def export_option(parent, folder_name, documents, version=(2, 50, 1), assets=None):
+def export_option(parent, folder_name, documents, assets=None, version=None):
     """Export project XMLs to a new option directory; stage before publishing."""
     import os
     import shutil
@@ -131,9 +131,10 @@ def export_option(parent, folder_name, documents, version=(2, 50, 1), assets=Non
     if not re.fullmatch(r'A[0-9A-Za-z]{3}', folder_name):
         raise ValueError('Folder name must be A followed by three letters or digits, e.g. A900.')
     if not documents: raise ValueError('The project has no content to export.')
-    version = tuple(int(v) for v in version)
-    if len(version) != 3 or any(v < 0 for v in version):
-        raise ValueError('Version requires three nonnegative integers.')
+    if version is not None:
+        if (not isinstance(version, (tuple, list)) or len(version) != 3
+                or any(type(v) is not int or v < 0 for v in version)):
+            raise ValueError('Version must contain three nonnegative integers.')
     assets = assets or {}
     seen=set()
     for root in documents:
@@ -153,8 +154,10 @@ def export_option(parent, folder_name, documents, version=(2, 50, 1), assets=Non
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(serialize(root), encoding='utf-8')
             for filename, data in artwork_files(root, assets): (target.parent/filename).write_bytes(data)
-        major,minor,release=version
-        (staging/'data.conf').write_text(f'[Version]\nName = CHUNITHM\nVerMajor   = {major}\nVerMinor   = {minor}\nVerRelease = {release}\n',encoding='utf-8')
+        if version is not None:
+            major, minor, release = version
+            (staging/'data.conf').write_text(
+                f'[Version]\nName = CHUNITHM\nVerMajor   = {major}\nVerMinor   = {minor}\nVerRelease = {release}\n', encoding='utf-8')
         if destination.exists(): raise ValueError('Output folder was created by another process; export cancelled.')
         os.rename(staging,destination)
     finally:

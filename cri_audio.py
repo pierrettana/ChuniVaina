@@ -169,11 +169,11 @@ def require_hca_bank(acb,awb):
     name=row.get('Name','')
     number=name[5:] if name.startswith('music') else ''
     if len(streams)==2 and number.isdigit() and row.get('AcbGuid')==hashlib.md5(awb+number.encode()).digest():
-        raise ValueError('This dual-stream bank layout is unsupported. Prepare a replacement ACB/AWB pair using CHUNITHM Customs Source and attach it in Song studio.')
+        raise ValueError('This dual-stream bank layout is unsupported. Prepare a replacement ACB/AWB pair using Audio preparation guide and attach it in Song studio.')
     waves=read_utf(root['rows'][0]['WaveformTable'])['rows']
     for wave,(_,stream) in zip(waves,streams):
         magic=bytes(b&0x7f for b in stream[:4])
         if wave.get('EncodeType')!=2 or magic!=b'HCA\0':
-            raise ValueError('This audio bank uses the old ADX/unsupported audio path. Prepare an HCA ACB/AWB pair using CHUNITHM Customs Source, then attach it in Song studio.')
+            raise ValueError('This audio bank uses the old ADX/unsupported audio path. Prepare an HCA ACB/AWB pair using Audio preparation guide, then attach it in Song studio.')
     return root,streams
 

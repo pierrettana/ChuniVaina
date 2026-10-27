@@ -1,10 +1,8 @@
-# ChuniVaina 1.0.0
+# ChuniVaina 1.1.1
 
 A desktop studio for a certain sliding rhythm game.. Make characters, categories, trophies, rewards, quests, events, maps, nameplates, rights credits, custom songs and stage texture variants in one project.
 
 The optional **Quick tour** features VainaPenguin, our penguin mascot! You may Skip it, disable startup display, or reopen it from the header. **Help / F1** provides searchable field descriptions.
-
-For clarifying: this was vibecoded, its more for convenience because editing xml files is annoying, however no AI model is used inside the tool, just was used to create the tool
 
 ## Run or build
 
@@ -26,11 +24,17 @@ The scripts install dependencies in a build environment and bundle templates, ar
 ## Start a project
 
 1. Import **A000** and your **Axxx** folders as ID conflict sources. **Bulk import Axxx folders…** accepts a parent folder and lets you select multiple options. Sources are read-only. Rescan after source changes.
-2. Choose **New** or **Import XML**. Set the ID/name, then **Apply identity**. Templates preserve structural defaults and external release references; review them for your installation.
-3. Edit fields with **Set value**, or use specialized editors. Advanced XML changes need **Apply XML edits**. Studio Apply buttons commit drafts to the project.
+2. For a guided workflow, choose **New → Guided character creator…**. It creates a character and linked artwork definition, with category and default ownership choices. Then use **Edit linked artwork…** to fill its three image slots. For other content, choose **New** or **Import XML**. Set the ID/name, then **Apply identity**. Templates preserve structural defaults and external release references; review them for your installation.
+3. **Item settings & next steps** is the default tab: character ownership/category forms and tools relevant to the selected item. Other settings and reference links remain under **Advanced fields**; raw XML remains available. Edit advanced fields with **Set value**, or use specialized editors. Advanced XML changes need **Apply XML edits**. Studio Apply buttons commit drafts to the project.
 4. **Link reference**, **Link reward** and **Link event target** connect definitions. Changing an ID does not automatically update other items’ links.
 5. **Save project** writes an editable `.cvproject`, including attachments and editable nameplate layers. Existing project files remain supported.
-6. **Check references**, then **Export Axxx folder…** with your chosen folder name and version. Export creates definitions, assets and `data.conf` in a new folder. Existing output folders and imported sources are protected from overwrite.
+6. **Check references**, then **Export Axxx folder…** with your chosen folder name. **Include data.conf** is optional and unchecked by default; version fields are enabled only when selected. Export creates definitions and assets, plus `data.conf` only if requested, in a new folder. Existing output folders and imported sources are protected from overwrite.
+
+**ID selection:** do not reuse official IDs. Import A000 and all installed options before choosing IDs. Avoid ranges likely to be used by future official updates, especially for custom songs; leave room beyond current allocations. No numeric range is guaranteed safe. The conflict detector checks scanned sources and project content; it cannot predict or reserve future official IDs. Recheck after updates and update all references if renumbering.
+
+**Optional data.conf:** custom content can load with or without this file. It supplies option/version information so the option appears in the test menu; it is not required for loading the custom itself. Files, IDs, references and installation must still be compatible. Version metadata can cause conflicts with the installed game or subsequent updates even when the content files remain compatible. Leave it unchecked unless you understand the version requirements. The sample version values are not detected from your installation. Review or omit the file when migrating content; it does not convert content to another version. Existing exports are never changed automatically.
+
+The window title and project status show whether applied project changes need saving. Studio windows keep their own drafts until Apply; Save project does not commit an open studio or raw XML draft.
 
 IDs are compared within each definition type. Duplicate project IDs block export; imported collisions require review. Unresolved references may belong to another option, but all dependencies must exist in the installation.
 
@@ -64,13 +68,13 @@ Rights information has `rightsText` and a 512×48 transparent DXT5 image. Artwor
 
 ## Custom songs
 
-**Song studio / UGC converter…** imports one song’s Margrete text UGC v8 difficulties, jacket and prepared ACB/AWB pair. Binary MGXC is unsupported. Pick ID, title, artist, genre, **CHUNITHM version** and optional stage. Versions come from exact release tags in indexed and project songs; rescan sources to populate them. Stage ID -1 uses version-default behavior.
+**Song studio / UGC converter…** imports one song’s Margrete text UGC v8 difficulties, jacket and prepared ACB/AWB pair. Binary MGXC is unsupported. Pick ID, title, artist, genre, **game version** and optional stage. Versions come from exact release tags in indexed and project songs; rescan sources to populate them. Stage ID -1 uses version-default behavior.
 
 Jackets are framed to 300×300 DXT1. **Apply song to project** converts charts and commits Music/CueFile definitions together. Save project before export. New songs appear in the task-track picker immediately.
 
 Supported: BASIC through ULTIMA, TAP, ExTAP, FLICK, DAMAGE, HOLD, SLIDE, AIR, AIR-HOLD, AIR-SLIDE, AIR-CRUSH, BPM and meter changes. Authored notes are preserved. Unsupported gameplay reports an error. WORLD’S END, custom timelines/speed effects, SOFFSET, nonzero BGMOFS, overlapping ExTAP/long-note carriers and AIR-HOLD endpoints without actions are unsupported. Metronome CLICKs are omitted with a warning. Presentation-only backgrounds/field styling are not exported.
 
-**Audio encoding requires external tools.** Follow [CHUNITHM Customs Source](https://github.com/Suprnova/Chunithm-Research/blob/main/Customs.md) by [Suprnova](https://github.com/Suprnova), then attach HCA ACB/AWB files. The opening notice includes Don’t show again. **ACB/AWB fixer…** repairs supported banks without re-encoding; see [AUDIO_FIXER.md](AUDIO_FIXER.md).
+**Audio encoding requires external tools.** Follow [Audio preparation guide](https://github.com/Suprnova/Chunithm-Research/blob/main/Customs.md) by [Suprnova](https://github.com/Suprnova), then attach HCA ACB/AWB files. The opening notice includes Don’t show again. **ACB/AWB fixer…** repairs supported banks without re-encoding; see [AUDIO_FIXER.md](AUDIO_FIXER.md).
 
 **Chart constants:** follow your server’s rules. Some public instances require low constants to avoid rating and leaderboard advantages. Imported constants are retained; review every enabled difficulty’s `level` and `levelDecimal`. There is no universal safe value. Song registration and server activation remain external.
 
@@ -94,7 +98,7 @@ Validation covers supported structures/assets/references, not a complete officia
 
 ## Credits
 
-- Pierretta: ChuniVaina and supplied mascot artwork.
+- pierretta: ChuniVaina and supplied mascot artwork.
 - [Suprnova / Chunithm-Research](https://github.com/Suprnova/Chunithm-Research): preparation and format research.
 - [vgmstream](https://github.com/vgmstream/vgmstream/blob/master/src/meta/hca_keys.h): public audio interoperability information.
 - [CriCodecs](https://github.com/Youjose/CriCodecs): HCA cipher conversion and verification.

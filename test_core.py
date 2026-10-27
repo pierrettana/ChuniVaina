@@ -13,11 +13,11 @@ class ModelTests(unittest.TestCase):
     def test_identity_preserves_references(self):
         r=parse(Path('templates/Chara.xml').read_text())
         old=r.findtext('defaultImages/id')
-        set_identity(r,99999,'Quincy & friends')
+        set_identity(r,99999,'pierretta & friends')
         validate(r)
         self.assertEqual(r.findtext('dataName'),'chara099999')
         self.assertEqual(r.findtext('defaultImages/id'),old)
-        self.assertEqual(parse(serialize(r)).findtext('name/str'),'Quincy & friends')
+        self.assertEqual(parse(serialize(r)).findtext('name/str'),'pierretta & friends')
     def test_index_definitions_namespaces_and_overlap(self):
         with tempfile.TemporaryDirectory() as d:
             d=Path(d)
@@ -38,11 +38,46 @@ class ModelTests(unittest.TestCase):
         with self.assertRaises(ValueError): parse('<!DOCTYPE x><CharaData/>')
 
 class OptionExportTests(unittest.TestCase):
+    def test_export_leaves_existing_configuration_files_untouched(self):
+        root=parse(Path('templates/CharaWorks.xml').read_text())
+        with tempfile.TemporaryDirectory() as parent:
+            parent=Path(parent)
+            source=parent/'A000';source.mkdir()
+            source_conf=source/'data.conf';source_conf.write_bytes(b'original source version')
+            previous=parent/'A900';previous.mkdir()
+            previous_conf=previous/'data.conf';previous_conf.write_bytes(b'older export version')
+            with self.assertRaises(ValueError):export_option(parent,'A900',[root])
+            out=export_option(parent,'A901',[root])
+            self.assertFalse((out/'data.conf').exists())
+            self.assertEqual(source_conf.read_bytes(),b'original source version')
+            self.assertEqual(previous_conf.read_bytes(),b'older export version')
+
+    def test_gui_export_without_optional_configuration(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from app import App
+        root=parse(Path('templates/CharaWorks.xml').read_text())
+        app=SimpleNamespace(docs=[root],assets={},folders=[],index={},scanning=False,
+            warn_song_constants=lambda docs:None,review_character_unlocks=lambda:True)
+        with tempfile.TemporaryDirectory() as parent:
+            with patch('app.simpledialog.askstring',return_value='A900') as ask, \
+                 patch('app.filedialog.askdirectory',return_value=parent), \
+                 patch('app.messagebox.showinfo') as info, \
+                 patch('cv_workflow.export_settings',return_value=[None]):
+                App.export_axxx(app)
+            ask.assert_called_once()
+            self.assertEqual(ask.call_args.args[0],'Option folder name')
+            info.assert_called_once()
+            out=Path(parent)/'A900'
+            self.assertFalse((out/'data.conf').exists())
+            self.assertTrue((out/'charaWorks'/root.findtext('dataName')/'CharaWorks.xml').is_file())
+
     def test_layout_and_safety(self):
         docs=[parse((Path('templates')/spec[2]).read_text()) for kind,spec in KINDS.items() if not asset_slots(ET.Element(kind)) and not binary_slots(ET.Element(kind))]
         with tempfile.TemporaryDirectory() as parent:
-            out=export_option(parent,'A900',docs,(2,50,1))
-            self.assertIn('VerMinor   = 50',(out/'data.conf').read_text())
+            out=export_option(parent,'A900',docs)
+            self.assertFalse((out/'data.conf').exists())
+            self.assertEqual({p.name for p in out.iterdir()}, {KINDS[root.tag][1] for root in docs})
             for root in docs:
                 spec=KINDS[root.tag]
                 target=out/spec[1]/root.findtext('dataName')/spec[2]
