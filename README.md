@@ -2,6 +2,8 @@
 
 A desktop studio for a certain sliding rhythm game.. Make characters, categories, trophies, rewards, quests, events, maps, nameplates, rights credits, custom songs and stage texture variants in one project.
 
+**Clarifying:** This tool was made using vibecode. No AI model is inside the tool but it was created using an AI tool. 
+
 The optional **Quick tour** features VainaPenguin, our penguin mascot! You may Skip it, disable startup display, or reopen it from the header. **Help / F1** provides searchable field descriptions.
 
 ## Run or build
